@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	clear_pile()
-{
+#include "push_swap.h"
 
+void	clear_program(void)
+{
+	exit(0);
 }

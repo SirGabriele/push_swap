@@ -13,9 +13,10 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <unistd.h>
-#include "../libft/libft.h"
+# include "../libft/libft.h"
 
 void	check_args(char **argv);
+void	clear_program(void);
+void	fill_tab(char **argv);
 
 #endif

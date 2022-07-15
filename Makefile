@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/07/11 19:04:31 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/07/15 16:28:24 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,10 @@ NAME = push_swap
 
 LIBFT = libft/libft.a
 
-SRC = main.c	\
-	check_args.c
+SRC = main.c		\
+	check_args.c	\
+	clear_program.c	\
+	fill_tab.c
 
 SRCS = $(addprefix src/, $(SRC))						\
 	 $(addprefix src/mandatory/window/, $(WINDOW_MANDA))		\
