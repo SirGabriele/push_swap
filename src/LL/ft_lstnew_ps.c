@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew_ps.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 14:26:41 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/18 19:29:45 by kbrousse         ###   ########.fr       */
+/*   Created: 2022/07/18 22:27:24 by kbrousse          #+#    #+#             */
+/*   Updated: 2022/07/18 22:29:29 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char **argv)
+t_list_ps	*ft_lstnew_ps(int nbr, t_ab *ab)
 {
-	t_ab	*ab;
+	t_list_ps	*elem;
 
-	ab = malloc(sizeof(t_ab));
-	init_program(ab);
-	if (argc == 1)
+	elem = malloc(sizeof(t_list_ps));
+	if (elem == NULL)
 		clear_program(ab);
-	check_args(++argv, ab);
-	fill_tab(argv, ab);
-	clear_program_good_ending(ab);
-	return (0);
+	elem->nbr = nbr;
+	elem->next = NULL;
+	return (elem);
 }

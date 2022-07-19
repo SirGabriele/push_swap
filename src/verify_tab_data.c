@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   verify_tab_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 14:26:41 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/18 19:29:45 by kbrousse         ###   ########.fr       */
+/*   Created: 2022/07/18 23:04:07 by kbrousse          #+#    #+#             */
+/*   Updated: 2022/07/19 01:14:42 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	verify_tab_data(char **tab, t_ab *ab)
 {
-	t_ab	*ab;
+	int		i;
+	int		j;
+	char	*buf;
 
-	ab = malloc(sizeof(t_ab));
-	init_program(ab);
-	if (argc == 1)
-		clear_program(ab);
-	check_args(++argv, ab);
-	fill_tab(argv, ab);
-	clear_program_good_ending(ab);
-	return (0);
+	i = -1;
+	while (tab[++i] != NULL)
+	{
+		j = ft_atoi(tab[i]);
+		buf = ft_itoa(j);
+		if (ft_strncmp(tab[i], buf, ft_strlen(tab[i])) != 0)
+		{
+			ft_printf("Int [over/under]flow dectected\n");
+			free(buf);
+			clear_program(ab);
+		}
+		free(buf);
+	}
 }

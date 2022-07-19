@@ -6,13 +6,13 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 15:16:20 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/15 17:03:43 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:08:22 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	check_charac_validity(char *argv)
+static void	check_charac_validity(char *argv, t_ab *ab)
 {
 	char	*tab;
 	int		i;
@@ -29,14 +29,14 @@ static void	check_charac_validity(char *argv)
 				break ;
 			if (j == 11)
 			{
-				ft_printf_error("Error\nInvalid character detected\n");
-				clear_program();
+				ft_printf("Forbidden symbol detected\n");
+				clear_program(ab);
 			}
 		}
 	}
 }
 
-static void	check_minus_usage(char *argv)
+static void	check_minus_usage(char *argv, t_ab *ab)
 {
 	int	i;
 
@@ -45,22 +45,21 @@ static void	check_minus_usage(char *argv)
 	{
 		if ((argv[i] == '-' && (argv[i + 1] < 48 || argv[i + 1] > 57))
 			|| ((argv[i] >= 48 && argv[i] <= 57) && argv[i + 1] == '-'))
-
 		{
-			ft_printf_error("Error\nBad usage of minus sign\n");
-			clear_program();
+			ft_printf("Bad usage of - sign\n");
+			clear_program(ab);
 		}
 	}
 }
 
-void	check_args(char **argv)
+void	check_args(char **argv, t_ab *ab)
 {
 	int		i;
 
 	i = -1;
 	while (argv[++i] != NULL)
 	{
-		check_charac_validity(argv[i]);
-		check_minus_usage(argv[i]);
+		check_charac_validity(argv[i], ab);
+		check_minus_usage(argv[i], ab);
 	}
 }	
