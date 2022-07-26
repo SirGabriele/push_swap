@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 12:33:24 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/04/18 17:00:02 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/07/20 20:15:49 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_is_a_specifier_error(const char c)
 	return (0);
 }
 
-static int	ft_scan_after_percentage_error(const char *fmt, int *i, va_list param)
+static int	ft_scan_after_percent_error(const char *fmt, int *i, va_list param)
 {
 	int	booly;
 
@@ -46,7 +46,7 @@ static int	ft_scan_after_percentage_error(const char *fmt, int *i, va_list param
 	if (ft_is_a_specifier_error(*fmt) == 1)
 	{
 		booly++;
-		ft_specifier_requested_error(&fmt, i, param);
+		ft_specifier_asked_error(&fmt, i, param);
 	}
 	return (booly);
 }
@@ -65,13 +65,13 @@ int	ft_printf_error(const char *fmt, ...)
 		if (*fmt == '%')
 		{
 			fmt++;
-			if (ft_scan_after_percentage_error(fmt, &i, param) == 0)
+			if (ft_scan_after_percent_error(fmt, &i, param) == 0)
 				return (0);
 			fmt++;
 		}
 		else
 		{
-			write(1, fmt, 1);
+			write(2, fmt, 1);
 			fmt++;
 			i++;
 		}

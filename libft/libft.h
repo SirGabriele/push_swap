@@ -6,7 +6,7 @@
 /*   By: kbrousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 09:16:54 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/06/23 15:16:07 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/07/20 20:14:59 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,17 +120,17 @@ void		ft_putmemory(unsigned long long int nbr, char *base, int *i);
 int			ft_is_a_specifier(const char c);
 
 //FT_PRINTF_ERROR
-int		ft_printf_error(const char *format, ...);
-void	ft_specifier_requested_error(const char **fmt, int *i, va_list param);
-void	ft_flag_requested_error(const char **fmt, int *i, va_list param);
-void	ft_putcharprintf_error(unsigned const char c, int *i);
-void	ft_putstrprintf_error(char *str, int *i);
-void	ft_putnbrbaseprintf_error(unsigned int nbr, char *base, int *i);
-void	ft_putnbrprintf_error(long long int nbr, int *i);
-void	ft_print_memory_error(unsigned long long int arg, int *i);
-size_t	ft_strlen(const char *str);
-void	ft_putmemory_error(unsigned long long int nbr, char *base, int *i);
-int		ft_is_a_specifier_error(const char c);
+int			ft_printf_error(const char *format, ...);
+void		ft_specifier_asked_error(const char **fmt, int *i, va_list param);
+void		ft_flag_asked_error(const char **fmt, int *i, va_list param);
+void		ft_putcharprintf_error(unsigned const char c, int *i);
+void		ft_putstrprintf_error(char *str, int *i);
+void		ft_putnbrbaseprintf_error(unsigned int nbr, char *base, int *i);
+void		ft_putnbrprintf_error(long long int nbr, int *i);
+void		ft_print_memory_error(unsigned long long int arg, int *i);
+size_t		ft_strlen(const char *str);
+void		ft_putmemory_error(unsigned long long int nbr, char *base, int *i);
+int			ft_is_a_specifier_error(const char c);
 
 //GNL_TDL
 t_listgnl	*ft_lstnewgnl(int entry_fd);

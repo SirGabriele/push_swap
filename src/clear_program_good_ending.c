@@ -38,6 +38,8 @@ void	clear_program_good_ending(t_ab *ab)
 		clear_stack(ab->a);
 	if (ab->b != NULL)
 		clear_stack(ab->b);
+	free(ab->a);
+	free(ab->b);
 	free(ab);
 	ab = NULL;
 	exit(0);

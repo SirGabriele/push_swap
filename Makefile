@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/07/19 00:09:37 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/07/26 23:07:59 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,15 +20,19 @@ SRC = main.c						\
 	clear_program_good_ending.c		\
 	fill_tab.c						\
 	fill_stack_a.c					\
-	verify_tab_data.c
+	calculate_magnitude.c
 
 INIT = init_program.c	\
 	init_stacks.c
 
 LL = ft_lstnew_ps.c			\
-	ft_lstadd_front_ps.c
+	ft_lstadd_front_ps.c	\
+	ft_lstadd_back_ps.c
 
-#INSTRUCTIONS =
+INSTRUCTIONS = push.c			\
+			rotate.c			\
+			reverse_rotate.c	\
+			swap.c
 
 SRCS = $(addprefix src/, $(SRC))						\
 	 $(addprefix src/init/, $(INIT))					\

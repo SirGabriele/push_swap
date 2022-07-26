@@ -6,11 +6,27 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 15:16:20 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/18 17:08:22 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/07/20 16:39:40 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	check_minus_usage(char *argv, t_ab *ab)
+{
+	int	i;
+
+	i = -1;
+	while (argv[++i] != '\0')
+	{
+		if ((argv[i] == '-' && (argv[i + 1] < 48 || argv[i + 1] > 57))
+			|| ((argv[i] >= 48 && argv[i] <= 57) && argv[i + 1] == '-'))
+		{
+			ft_printf_error("Bad usage of - sign\n");//A SUPPRIMER
+			clear_program(ab);
+		}
+	}
+}
 
 static void	check_charac_validity(char *argv, t_ab *ab)
 {
@@ -25,29 +41,18 @@ static void	check_charac_validity(char *argv, t_ab *ab)
 		j = -1;
 		while (++j < 12)
 		{
+			if (argv[i] == ' ' && argv[i + 1] == ' ')
+			{
+				ft_printf_error("Two spaces in a row detected\n");
+				clear_program(ab);
+			}
 			if (argv[i] == tab[j])
 				break ;
 			if (j == 11)
 			{
-				ft_printf("Forbidden symbol detected\n");
+				ft_printf_error("Forbidden symbol detected\n");//A SUPPRIMER
 				clear_program(ab);
 			}
-		}
-	}
-}
-
-static void	check_minus_usage(char *argv, t_ab *ab)
-{
-	int	i;
-
-	i = -1;
-	while (argv[++i] != '\0')
-	{
-		if ((argv[i] == '-' && (argv[i + 1] < 48 || argv[i + 1] > 57))
-			|| ((argv[i] >= 48 && argv[i] <= 57) && argv[i + 1] == '-'))
-		{
-			ft_printf("Bad usage of - sign\n");
-			clear_program(ab);
 		}
 	}
 }
@@ -62,4 +67,8 @@ void	check_args(char **argv, t_ab *ab)
 		check_charac_validity(argv[i], ab);
 		check_minus_usage(argv[i], ab);
 	}
+	ab->a = malloc(sizeof(t_stack_ps));
+	if (ab->a == NULL)
+		clear_program(ab);
+	init_stack_a(ab->a);
 }	

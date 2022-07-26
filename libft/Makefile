@@ -6,7 +6,7 @@
 #    By: kbrousse <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 12:29:47 by kbrousse          #+#    #+#              #
-#    Updated: 2022/07/11 17:34:15 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/07/20 20:42:03 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ FT_PRINTF =	ft_printf.c              \
 
 FT_PRINTF_ERROR = ft_printf_error.c				\
 				ft_printer_functions_error.c	\
-				ft_specifier_requested_error.c 
+				ft_specifier_asked_error.c 
 
 SRCS   =	$(addprefix CHAR/, $(CHAR))					\
 			$(addprefix STR/, $(STR))					\
@@ -87,7 +87,7 @@ SRCS   =	$(addprefix CHAR/, $(CHAR))					\
 			$(addprefix PUT/, $(OUTPUT))				\
 			$(addprefix ATOI-ITOA/, $(OTHER))			\
 			$(addprefix LL/, $(LL))						\
-			$(addprefix GNL_TDL/, $(GNL))					\
+			$(addprefix GNL_TDL/, $(GNL_TDL))				\
 			$(addprefix FT_PRINTF/, $(FT_PRINTF))			\
 			$(addprefix FT_PRINTF_ERROR/, $(FT_PRINTF_ERROR))
 	

@@ -12,8 +12,8 @@
 
 #include "../push_swap.h"
 
-void	ft_lstadd_front_ps(t_list_ps *head, t_list_ps *new)
+void	ft_lstadd_front_ps(t_stack_ps *a, t_list_ps *new)
 {
-	new->next = head;
-	head = new;
+	new->next = a->head;
+	a->head = new;
 }

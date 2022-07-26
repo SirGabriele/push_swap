@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_stack_a.c                                     :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 17:33:20 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/19 07:30:29 by kbrousse         ###   ########.fr       */
+/*   Created: 2022/07/20 17:16:41 by kbrousse          #+#    #+#             */
+/*   Updated: 2022/07/26 22:49:50 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	fill_stack_a(char **tab, t_ab *ab)
+void	pa(t_stack_ps *a, t_stack_ps *b)
 {
-	int			i;
+	t_list_ps	*copy;
 
-	i = 0;
-	while (tab[i] != NULL)
-	{
-		ft_lstadd_back_ps(ab->a, ft_lstnew_ps(ft_atoi(tab[i]), ab));
-		i++;
-	}
+	if (b->head == NULL)
+		return ;
+	copy = a->head;
+	a->head = b->head;
+	b->head = b->head->next;
+	a->head->next = copy;
+	write(1, "pa", 2);
+}
+
+void	pb(t_stack_ps *a, t_stack_ps *b)
+{
+	t_list_ps	*copy;
+
+	copy = b->head;
+	b->head = a->head;
+	a->head = a->head->next;
+	b->head->next = copy;
+	write(1, "pb", 2);
 }

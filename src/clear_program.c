@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:35:26 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/18 21:51:12 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/07/19 05:47:51 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static void	clear_stack(t_stack_ps *stack)
 {
 	if (stack->head != NULL)
 		clear_list(stack->head);
-	free(stack->head);
 }
 
 void	clear_program(t_ab *ab)
@@ -43,6 +42,6 @@ void	clear_program(t_ab *ab)
 	free(ab->b);
 	free(ab);
 	ab = NULL;
-	ft_printf("Error\n");
+	ft_printf_error("Error\n");
 	exit(0);
 }

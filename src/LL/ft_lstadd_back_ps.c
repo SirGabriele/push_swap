@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back_ps.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kbrousse <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/29 11:07:26 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/20 19:59:44 by kbrousse         ###   ########.fr       */
+/*   Created: 2022/07/18 22:22:46 by kbrousse          #+#    #+#             */
+/*   Updated: 2022/07/20 15:28:16 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+#include "../push_swap.h"
+
+void	ft_lstadd_back_ps(t_stack_ps *a, t_list_ps *new)
 {
-	size_t	i;
-	char	*ptr;
+	t_list_ps	*copy;
 
-	i = 0;
-	ptr = s;
-	while (i < n)
+	copy = a->head;
+	if (a->head == NULL)
+		a->head = new;
+	else
 	{
-		*(char *)ptr = c;
-		ptr++;
-		i++;
+		while (copy->next != NULL)
+			copy = copy->next;
+		copy->next = new;
 	}
-	return (s);
 }

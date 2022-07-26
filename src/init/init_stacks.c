@@ -13,11 +13,11 @@
 #include "../push_swap.h"
 
 void	init_stack_a(t_stack_ps *a)
-{
+{	
 	a->head = NULL;
 }
 
-/*void	init_stack_b(t_stack_ps *b)
+void	init_stack_b(t_stack_ps *b)
 {
-	a->head = NULL;
-}*/
+	b->head = NULL;
+}

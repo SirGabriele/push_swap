@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_stack_a.c                                     :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 17:33:20 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/19 07:30:29 by kbrousse         ###   ########.fr       */
+/*   Created: 2022/07/20 17:11:19 by kbrousse          #+#    #+#             */
+/*   Updated: 2022/07/20 18:26:47 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	fill_stack_a(char **tab, t_ab *ab)
+void	sa(t_stack_ps *a)
 {
-	int			i;
+	int	temp;
 
-	i = 0;
-	while (tab[i] != NULL)
-	{
-		ft_lstadd_back_ps(ab->a, ft_lstnew_ps(ft_atoi(tab[i]), ab));
-		i++;
-	}
+	temp = a->head->nbr;
+	a->head->nbr = a->head->next->nbr;
+	a->head->next->nbr = temp;
+}
+
+void	sb(t_stack_ps *b)
+{
+	int	temp;
+
+	temp = b->head->nbr;
+	b->head->nbr = b->head->next->nbr;
+	b->head->next->nbr = temp;
+}
+
+void	ss(t_stack_ps *a, t_stack_ps *b)
+{
+	sa(a);
+	sb(b);
 }

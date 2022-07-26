@@ -6,11 +6,65 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:28:32 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/18 20:35:51 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/07/20 16:08:53 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	verify_tab_data(char **tab, t_ab *ab)
+{
+	int		i;
+	int		j;
+	char	*buf;
+
+	i = -1;
+	while (tab[++i] != NULL)
+	{
+		j = ft_atoi(tab[i]);
+		buf = ft_itoa(j);
+		if (ft_strncmp(tab[i], buf, ft_strlen(tab[i])) != 0)
+		{
+			ft_printf_error("Int [over/under]flow dectected\n");// A SUPPRIMER
+			free(buf);
+			clear_program(ab);
+		}
+		free(buf);
+	}
+}
+
+static void	is_duplicate(t_ab *ab)
+{
+	t_list_ps	*copy;
+	t_list_ps	*checker;
+
+	copy = ab->a->head;
+	checker = NULL;
+	while (copy->next != NULL)
+	{
+		checker = copy->next;
+		while (checker != NULL)
+		{
+			if (copy->nbr == checker->nbr)
+			{
+				ft_printf_error("Duplicate values detected\n");// A SUPPRIMER
+				clear_program(ab);
+			}
+			checker = checker->next;
+		}
+		copy = copy->next;
+	}
+}
+
+static void	clear_tab(char **tab)
+{
+	int	i;
+
+	i = -1;
+	while (tab[++i] != NULL)
+		free(tab[i]);
+	free(tab);
+}
 
 static int	count_numbers(char *argv)
 {
@@ -35,9 +89,8 @@ static int	count_numbers(char *argv)
 
 void	fill_tab(char **argv, t_ab *ab)
 {
-	int		i;
-	int		j;
-	char	**tab;
+	int			i;
+	char		**tab;
 
 	i = -1;
 	while (argv[++i] != NULL)
@@ -47,7 +100,8 @@ void	fill_tab(char **argv, t_ab *ab)
 			tab = ft_calloc(sizeof(char *), 2);
 			if (tab == NULL)
 			{
-				ft_printf("Error while filling tab\n");//A SUPPRIMER
+				ft_printf_error("Error while filling tab\n");//A SUPPRIMER
+				clear_tab(tab);
 				clear_program(ab);
 			}
 			tab[0] = ft_strdup(argv[i]);
@@ -56,9 +110,8 @@ void	fill_tab(char **argv, t_ab *ab)
 			tab = ft_split(argv[i], ' ');
 		verify_tab_data(tab, ab);
 		fill_stack_a(tab, ab);
-		j = -1;
-		while (tab[++j] != NULL)
-			free(tab[j]);
-		free(tab);
+		clear_tab(tab);
 	}
+	is_duplicate(ab);
+	calculate_magnitude(ab);
 }
