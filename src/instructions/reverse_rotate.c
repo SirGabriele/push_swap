@@ -29,7 +29,7 @@ void	rra(t_stack_ps *a)
 	a->head = last;
 	last->next = copy;
 	penultimate->next = NULL;
-	write(1, "rra", 3);
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack_ps *b)
@@ -49,7 +49,7 @@ void	rrb(t_stack_ps *b)
 	b->head = last;
 	last->next = copy;
 	penultimate->next = NULL;
-	write(1, "rrb", 3);
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack_ps *a, t_stack_ps *b)

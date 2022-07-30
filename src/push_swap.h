@@ -18,6 +18,7 @@
 typedef struct s_list_ps
 {
 	int					nbr;
+	int					index;
 	struct s_list_ps	*next;
 }	t_list_ps;
 
@@ -31,11 +32,13 @@ typedef struct s_ab
 	struct s_stack_ps	*a;
 	struct s_stack_ps	*b;
 	int					magnitude;
+	int					size;
 }	t_ab;
 
 void		check_args(char **argv, t_ab *ab);
 void		calculate_magnitude(t_ab *ab);
 void		fill_tab(char **argv, t_ab *ab);
+int		is_an_int(char *tab);
 void		fill_stack_a(char **tab, t_ab *ab);
 void		clear_program(t_ab *ab);
 void		clear_program_good_ending(t_ab *ab);
@@ -44,6 +47,9 @@ void		clear_program_good_ending(t_ab *ab);
 void		init_program(t_ab *ab);
 void		init_stack_a(t_stack_ps *a);
 void		init_stack_b(t_stack_ps *b);
+
+void		indexing(t_ab *ab);
+void		sort_with_radix(t_ab *ab);
 
 // LL functions
 t_list_ps	*ft_lstnew_ps(int nbr, t_ab *ab);

@@ -19,6 +19,7 @@ void	sa(t_stack_ps *a)
 	temp = a->head->nbr;
 	a->head->nbr = a->head->next->nbr;
 	a->head->next->nbr = temp;
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack_ps *b)
@@ -28,6 +29,7 @@ void	sb(t_stack_ps *b)
 	temp = b->head->nbr;
 	b->head->nbr = b->head->next->nbr;
 	b->head->next->nbr = temp;
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack_ps *a, t_stack_ps *b)

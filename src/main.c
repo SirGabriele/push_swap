@@ -16,30 +16,63 @@ int	main(int argc, char **argv)
 {
 	t_ab	*ab;
 
-	if (argc == 2)
+	if (argc == 1)
 		return (1);
 	ab = malloc(sizeof(t_ab));
 	init_program(ab);
 	check_args(++argv, ab);
 	fill_tab(argv, ab);
-	
+	indexing(ab);
+	sort_with_radix(ab);
 	
 	t_list_ps	*temp;
+	t_list_ps	*tempb;
+	int		i = 0;
+	int		j = 0;
 	temp = ab->a->head;
-	while (temp != NULL)
-	{
-		ft_printf("%d\n", temp->nbr);
-		temp = temp->next;
-	}
-	ft_printf("\n\nMagnitude : %d\n", ab->magnitude);
-	/*sa(ab->a);
+	tempb = ab->b->head;
 	
-	temp = ab->a->head;
-	while (temp != NULL)
+	ft_printf("---------------------------Avant---------------------------\n\n");
+	while (temp || tempb)
 	{
-		ft_printf("%d\n", temp->nbr);
-		temp = temp->next;
-	}*/
+		if (temp)
+		{		
+//			ft_printf("%p\t", temp);
+			ft_printf("A[%d] : %d\t", i++, temp->nbr);
+//			ft_printf("%p\n", temp->next);
+			ft_printf("index : %d", temp->index);
+			temp = temp->next;
+		}
+		ft_printf("\n");
+	}
+//	ft_printf("%d\t", tempb->nbr);
+//	ft_printf("\nab->magnitude : %d\n", ab->magnitude);
+//	ft_printf("ab->size : %d\n", ab->size);
+
+	pb(ab->a, ab->b);
+	temp = ab->a->head;
+	tempb = ab->b->head;
+	i = 0;
+	j = 0;
+	
+	ft_printf("\n\n---------------------------Après---------------------------\n\n");
+	while (temp != NULL || tempb)
+	{
+		if (temp)
+		{
+			ft_printf("A[%d] : %d\t", i++, temp->nbr);
+			ft_printf("index : %d\t|\t", temp->index);
+			temp = temp->next;
+		}
+		if (tempb)
+		{
+			ft_printf("B[%d] %d\t", j++, tempb->nbr);
+			ft_printf("index : %d", tempb->index);
+			tempb = tempb->next;
+		}
+		ft_printf("\n");
+	}
+	
 	clear_program_good_ending(ab);
 	return (0);
 }

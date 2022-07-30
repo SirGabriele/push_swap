@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   indexing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 17:16:41 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/26 22:49:50 by kbrousse         ###   ########.fr       */
+/*   Created: 2022/07/29 16:58:14 by kbrousse          #+#    #+#             */
+/*   Updated: 2022/07/29 18:09:19 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	pa(t_stack_ps *a, t_stack_ps *b)
+void	indexing(t_ab *ab)
 {
 	t_list_ps	*copy;
+	t_list_ps	*reader;
 
-	if (b->head == NULL)
-		return ;
-	copy = a->head;
-	a->head = b->head;
-	b->head = b->head->next;
-	a->head->next = copy;
-	write(1, "pa\n", 3);
-}
+	int			hm_inf;
 
-void	pb(t_stack_ps *a, t_stack_ps *b)
-{
-	t_list_ps	*copy;
-
-	copy = b->head;
-	b->head = a->head;
-	a->head = a->head->next;
-	b->head->next = copy;
-	write(1, "pb\n", 3);
+	copy = ab->a->head;
+	hm_inf = 0;
+	while (copy != NULL)
+	{
+		reader = ab->a->head;
+		while (reader != NULL)
+		{
+			if (reader->nbr < copy->nbr)
+				hm_inf++;
+			reader = reader->next;
+		}
+		copy->index = hm_inf;
+		copy = copy->next;
+		hm_inf = 0;
+	}
 }

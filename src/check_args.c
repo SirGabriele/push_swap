@@ -12,6 +12,22 @@
 
 #include "push_swap.h"
 
+static void	check_plus_usage(char *argv, t_ab *ab)
+{
+	int	i;
+
+	i = -1;
+	while (argv[++i] != '\0')
+	{
+		if ((argv[i] == '+' && (argv[i + 1] < 48 || argv[i + 1] > 57))
+			|| ((argv[i] >= 48 && argv[i] <= 57) && (argv[i + 1] == '+')))
+		{
+			ft_printf_error("Bad usage of + sign\n");//A SUPPRIMER
+			clear_program(ab);
+		}
+	}
+}
+
 static void	check_minus_usage(char *argv, t_ab *ab)
 {
 	int	i;
@@ -20,7 +36,7 @@ static void	check_minus_usage(char *argv, t_ab *ab)
 	while (argv[++i] != '\0')
 	{
 		if ((argv[i] == '-' && (argv[i + 1] < 48 || argv[i + 1] > 57))
-			|| ((argv[i] >= 48 && argv[i] <= 57) && argv[i + 1] == '-'))
+			|| ((argv[i] >= 48 && argv[i] <= 57) && (argv[i + 1] == '-')))
 		{
 			ft_printf_error("Bad usage of - sign\n");//A SUPPRIMER
 			clear_program(ab);
@@ -35,20 +51,15 @@ static void	check_charac_validity(char *argv, t_ab *ab)
 	int		j;
 
 	i = -1;
-	tab = "0123456789- ";
+	tab = "0123456789-+ ";
 	while (argv[++i] != '\0')
 	{
 		j = -1;
-		while (++j < 12)
+		while (++j < 13)
 		{
-			if (argv[i] == ' ' && argv[i + 1] == ' ')
-			{
-				ft_printf_error("Two spaces in a row detected\n");
-				clear_program(ab);
-			}
 			if (argv[i] == tab[j])
 				break ;
-			if (j == 11)
+			if (j == 12)
 			{
 				ft_printf_error("Forbidden symbol detected\n");//A SUPPRIMER
 				clear_program(ab);
@@ -64,11 +75,19 @@ void	check_args(char **argv, t_ab *ab)
 	i = -1;
 	while (argv[++i] != NULL)
 	{
+		if (argv[i][0] == '\0')
+		{
+			ft_printf_error("Empty array detected\n");//A SUPPRIMER
+			clear_program(ab);
+		}
 		check_charac_validity(argv[i], ab);
 		check_minus_usage(argv[i], ab);
+		check_plus_usage(argv[i], ab);
 	}
 	ab->a = malloc(sizeof(t_stack_ps));
-	if (ab->a == NULL)
+	ab->b = malloc(sizeof(t_stack_ps));
+	if (ab->a == NULL || ab->b == NULL)
 		clear_program(ab);
 	init_stack_a(ab->a);
+	init_stack_b(ab->b);
 }	

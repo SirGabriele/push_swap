@@ -22,7 +22,7 @@ void	ra(t_stack_ps *a)
 	last->next = a->head;
 	a->head = a->head->next;
 	last->next->next = NULL;
-	write(1, "ra", 2);
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack_ps *b)
@@ -31,13 +31,11 @@ void	rb(t_stack_ps *b)
 
 	last = b->head;
 	while (last->next != NULL)
-	{
 		last = last->next;
-	}
 	last->next = b->head;
 	b->head = b->head->next;
 	last->next->next = NULL;
-	write(1, "rb", 2);
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack_ps *a, t_stack_ps *b)

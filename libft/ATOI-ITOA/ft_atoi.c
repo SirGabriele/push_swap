@@ -9,6 +9,7 @@
 /*   Updated: 2022/04/04 15:25:01 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_atoi(const char *nptr)
@@ -26,8 +27,6 @@ int	ft_atoi(const char *nptr)
 	{
 		if (nptr[i] == 45)
 			sign = -sign;
-		else if (nptr[i] + 1 == 43 || nptr[i] + 1 == 45)
-			return (0);
 		i++;
 	}
 	while (nptr[i] >= 48 && nptr[i] <= 57)
