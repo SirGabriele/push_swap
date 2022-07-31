@@ -12,26 +12,28 @@
 
 #include "../push_swap.h"
 
-void	pa(t_stack_ps *a, t_stack_ps *b)
+void	pa(t_ab *ab)
 {
 	t_list_ps	*copy;
 
-	if (b->head == NULL)
-		return ;
-	copy = a->head;
-	a->head = b->head;
-	b->head = b->head->next;
-	a->head->next = copy;
+	if (ab->b->head == NULL)
+		ab->b->head = ft_lstnew_ps(ab->a->head->nbr, ab);
+	copy = ab->a->head;
+	ab->a->head = ab->b->head;
+	ab->b->head = ab->b->head->next;
+	ab->a->head->next = copy;
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_stack_ps *a, t_stack_ps *b)
+void	pb(t_ab *ab)
 {
 	t_list_ps	*copy;
 
-	copy = b->head;
-	b->head = a->head;
-	a->head = a->head->next;
-	b->head->next = copy;
+	if (ab->a->head == NULL)
+		ab->a->head = ft_lstnew_ps(ab->b->head->nbr, ab);
+	copy = ab->b->head;
+	ab->b->head = ab->a->head;
+	ab->a->head = ab->a->head->next;
+	ab->b->head->next = copy;
 	write(1, "pb\n", 3);
 }

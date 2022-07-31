@@ -23,16 +23,47 @@ int	main(int argc, char **argv)
 	check_args(++argv, ab);
 	fill_tab(argv, ab);
 	indexing(ab);
+	
+	
+		t_list_ps	*temp;
+		t_list_ps	*tempb;
+		int		i = 0;
+		int		j = 0;
+		temp = ab->a->head;
+		tempb = ab->b->head;
+		i = 0;
+		j = 0;
+		
+		ft_printf("\n\n---------------------------Avant---------------------------\n\n");
+		while (temp != NULL || tempb)
+		{
+			if (temp)
+			{
+				ft_printf("A[%d] : %d\t", i++, temp->nbr);
+				ft_printf("index : %d\t|\t", temp->index);
+				temp = temp->next;
+			}
+			if (tempb)
+			{
+				ft_printf("B[%d] %d\t", j++, tempb->nbr);
+				ft_printf("index : %d", tempb->index);
+				tempb = tempb->next;
+			}
+			ft_printf("\n");
+		}
+	
+
+	
 	sort_with_radix(ab);
 	
-	t_list_ps	*temp;
-	t_list_ps	*tempb;
-	int		i = 0;
-	int		j = 0;
+	temp = ab->a->head;
+	tempb = ab->b->head;
+	i = 0;
+	j = 0;
 	temp = ab->a->head;
 	tempb = ab->b->head;
 	
-	ft_printf("---------------------------Avant---------------------------\n\n");
+	ft_printf("---------------------------Après---------------------------\n\n");
 	while (temp || tempb)
 	{
 		if (temp)
@@ -49,8 +80,7 @@ int	main(int argc, char **argv)
 //	ft_printf("\nab->magnitude : %d\n", ab->magnitude);
 //	ft_printf("ab->size : %d\n", ab->size);
 
-	pb(ab->a, ab->b);
-	temp = ab->a->head;
+/*	temp = ab->a->head;
 	tempb = ab->b->head;
 	i = 0;
 	j = 0;
@@ -72,6 +102,29 @@ int	main(int argc, char **argv)
 		}
 		ft_printf("\n");
 	}
+	
+	temp = ab->a->head;
+	tempb = ab->b->head;
+	i = 0;
+	j = 0;
+	
+	ft_printf("\n\n---------------------------Après x2---------------------------\n\n");
+	while (temp != NULL || tempb)
+	{
+		if (temp)
+		{
+			ft_printf("A[%d] : %d\t", i++, temp->nbr);
+			ft_printf("index : %d\t|\t", temp->index);
+			temp = temp->next;
+		}
+		if (tempb)
+		{
+			ft_printf("B[%d] %d\t", j++, tempb->nbr);
+			ft_printf("index : %d", tempb->index);
+			tempb = tempb->next;
+		}
+		ft_printf("\n");
+	}*/
 	
 	clear_program_good_ending(ab);
 	return (0);

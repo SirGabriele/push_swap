@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/07/30 12:22:40 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/07/31 17:25:29 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,7 @@ SRC = main.c						\
 	fill_stack_a.c					\
 	calculate_magnitude.c			\
 	is_an_int.c						\
-	indexing.c						\
-	sort_with_radix.c
+	indexing.c
 
 INIT = init_program.c	\
 	init_stacks.c
@@ -37,10 +36,13 @@ INSTRUCTIONS = push.c			\
 			reverse_rotate.c	\
 			swap.c
 
+RADIX = sort_with_radix.c
+
 SRCS = $(addprefix src/, $(SRC))						\
 	 $(addprefix src/init/, $(INIT))					\
 	 $(addprefix src/instructions/, $(INSTRUCTIONS))	\
-	 $(addprefix src/LL/, $(LL))
+	 $(addprefix src/LL/, $(LL))						\
+	 $(addprefix src/radix/, $(RADIX))
 
 CC =	gcc
 
