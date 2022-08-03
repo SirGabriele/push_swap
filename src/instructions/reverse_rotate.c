@@ -52,8 +52,8 @@ void	rrb(t_stack_ps *b)
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack_ps *a, t_stack_ps *b)
+void	rrr(t_ab *ab)
 {
-	rra(a);
-	rrb(b);
+	rra(ab->a);
+	rrb(ab->b);
 }

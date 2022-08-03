@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/07/31 17:25:29 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/08/03 11:22:03 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ SRC = main.c						\
 	clear_program_good_ending.c		\
 	fill_tab.c						\
 	fill_stack_a.c					\
-	calculate_magnitude.c			\
 	is_an_int.c						\
 	indexing.c
 
@@ -36,13 +35,14 @@ INSTRUCTIONS = push.c			\
 			reverse_rotate.c	\
 			swap.c
 
-RADIX = sort_with_radix.c
+SORTING_ALGORITHMS = sort_with_radix.c			\
+					sort_under_fifty_values.c
 
-SRCS = $(addprefix src/, $(SRC))						\
-	 $(addprefix src/init/, $(INIT))					\
-	 $(addprefix src/instructions/, $(INSTRUCTIONS))	\
-	 $(addprefix src/LL/, $(LL))						\
-	 $(addprefix src/radix/, $(RADIX))
+SRCS = $(addprefix src/, $(SRC))									\
+	 $(addprefix src/init/, $(INIT))								\
+	 $(addprefix src/instructions/, $(INSTRUCTIONS))				\
+	 $(addprefix src/LL/, $(LL))									\
+	 $(addprefix src/sorting_algorithms/, $(SORTING_ALGORITHMS))
 
 CC =	gcc
 
@@ -57,7 +57,7 @@ clean:
 	echo "\033[0;32m~*~*~*~*~*~*~*~*~*~*~*~*~*~*~"
 	echo "*                           *"
 	echo "~     Clean terminated!     ~"
-	echo "*          so_long          *"
+	echo "*         push_swap         *"
 	echo "~*~*~*~*~*~*~*~*~*~*~*~*~*~*~\033[0m"
 
 fclean: clean
@@ -74,7 +74,7 @@ $(NAME): $(LIBFT) $(OBJS)
 	echo "\033[0;32m~*~*~*~*~*~*~*~*~*~*~*~*~*~*~"
 	echo "*                           *"
 	echo "~  Compilation terminated!  ~"
-	echo "*          so_long          *"
+	echo "*         push_swap         *"
 	echo "~*~*~*~*~*~*~*~*~*~*~*~*~*~*~\033[0m"
 
 $(LIBFT):

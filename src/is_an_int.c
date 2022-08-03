@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 19:05:13 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/28 21:37:20 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/08/03 10:35:18 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	is_an_int(char *tab)
 		sign = -sign;
 	while (tab[i] >= 48 && tab[i] <= 57)
 	{
-			res = res * 10 + (tab[i] - 48);
-			i++;
-			if ((sign == 1 && res > 2147483647) || (sign == -1 && res > 2147483648))
-				return (1);
+		res = res * 10 + (tab[i] - 48);
+		i++;
+		if ((sign == 1 && res > 2147483647) || (sign == -1 && res > 2147483648))
+			return (1);
 	}
 	return (0);
 }

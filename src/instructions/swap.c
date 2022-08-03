@@ -32,8 +32,8 @@ void	sb(t_stack_ps *b)
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack_ps *a, t_stack_ps *b)
+void	ss(t_ab *ab)
 {
-	sa(a);
-	sb(b);
+	sa(ab->a);
+	sb(ab->b);
 }

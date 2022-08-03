@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:28:32 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/20 16:08:53 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/08/03 10:35:49 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	is_duplicate(t_ab *ab)
 {
 	t_list_ps	*copy;
 	t_list_ps	*checker;
-	int		size;
+	int			size;
 
 	size = 1;
 	copy = ab->a->head;
@@ -112,5 +112,4 @@ void	fill_tab(char **argv, t_ab *ab)
 		clear_tab(tab);
 	}
 	is_duplicate(ab);
-	calculate_magnitude(ab);
 }
