@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/08/03 11:22:03 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/08/05 22:31:57 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,10 @@ INIT = init_program.c	\
 	init_stacks.c
 
 LL = ft_lstnew_ps.c			\
+	ft_lstnewops_ps.c		\
 	ft_lstadd_front_ps.c	\
-	ft_lstadd_back_ps.c
+	ft_lstadd_back_ps.c		\
+	ft_lstadd_backops_ps.c
 
 INSTRUCTIONS = push.c			\
 			rotate.c			\

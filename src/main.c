@@ -25,17 +25,18 @@ int	main(int argc, char **argv)
 	indexing(ab);
 	
 
-/*	t_list_ps	*temp;
+	t_list_ps	*temp;
 	t_list_ps	*tempb;
+	t_ops_ps	*tempc;
+	
 	int		i = 0;
 	int		j = 0;
+	int		k = 0;
 	temp = ab->a->head;
 	tempb = ab->b->head;
-	i = 0;I'll show
-	j = 0;
 		
 		ft_printf("\n\n--------------Unsorted--------------\n\n");
-		while (temp != NULL || tempb)
+		while (temp || tempb)
 		{
 			if (temp)
 			{
@@ -50,7 +51,8 @@ int	main(int argc, char **argv)
 				tempb = tempb->next;
 			}
 			ft_printf("\n");
-		}*/
+		}
+	ft_printf("\n");
 	
 	if (ab->size == 2 && ab->a->head->nbr > ab->a->head->next->nbr)
 		sa(ab->a);
@@ -59,26 +61,40 @@ int	main(int argc, char **argv)
 	else if (ab->size >= 100)
 		sort_with_radix(ab);
 	
-	
-	
-/*	temp = ab->a->head;
-	tempb = ab->b->head;
-	i = 0;
-	j = 0;
 	temp = ab->a->head;
 	tempb = ab->b->head;
+	tempc = ab->ops;
+	i = 0;
+	j = 0;
+	k = 0;
 
-	ft_printf("--------------Sorted--------------\n\n");
+	ft_printf("---------------Sorted---------------\n\n");
 	while (temp || tempb)
 	{
 		if (temp)
 		{		
-			ft_printf("A[%d] : %d\t\t", i++, temp->nbr);
-			ft_printf("index : %d", temp->index);
+			ft_printf("A[%d] : %d\t", i++, temp->nbr);
+			ft_printf("index : %d\t", temp->index);
 			temp = temp->next;
 		}
+		if (tempb)
+		{			
+			ft_printf("|\tB[%d] : %d\t", j++, tempb->nbr);
+			ft_printf("index : %d\t", tempb->index);
+			tempb = tempb->next;
+		}
 		ft_printf("\n");
-	}*/
+	}
+	
+	ft_printf("\n\n");
+	while (tempc)
+	{
+		if (tempc)
+		{
+			ft_printf("OP[%d] : %s\n", k++, tempc->op);
+			tempc = tempc->next;
+		}
+	}
 	
 	clear_program_good_ending(ab);
 	return (0);

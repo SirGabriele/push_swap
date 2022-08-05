@@ -22,7 +22,11 @@ void	pa(t_ab *ab)
 	ab->a->head = ab->b->head;
 	ab->b->head = ab->b->head->next;
 	ab->a->head->next = copy;
-	write(1, "pa\n", 3);
+	if (ab->ops == NULL)
+		ab->ops = ft_lstnewops_ps("pa", ab);
+	else
+		ft_lstadd_backops_ps(ab, ft_lstnewops_ps("pa", ab));
+//	write(1, "pa\n", 3);
 }
 
 void	pb(t_ab *ab)
@@ -35,5 +39,9 @@ void	pb(t_ab *ab)
 	ab->b->head = ab->a->head;
 	ab->a->head = ab->a->head->next;
 	ab->b->head->next = copy;
-	write(1, "pb\n", 3);
+	if (ab->ops == NULL)
+		ab->ops = ft_lstnewops_ps("pb", ab);
+	else
+		ft_lstadd_backops_ps(ab, ft_lstnewops_ps("pb", ab));
+//	write(1, "pb\n", 3);
 }

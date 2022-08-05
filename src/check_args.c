@@ -90,4 +90,5 @@ void	check_args(char **argv, t_ab *ab)
 		clear_program(ab);
 	init_stack_a(ab->a);
 	init_stack_b(ab->b);
+//	init_ops(ab->ops);
 }	

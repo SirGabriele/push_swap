@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 15:15:16 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/08/03 10:35:03 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/08/05 18:05:16 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+
+typedef struct s_ops_ps
+{
+	char			*op;
+	struct s_ops_ps	*next;
+}	t_ops_ps;
 
 typedef struct s_list_ps
 {
@@ -31,6 +37,7 @@ typedef struct s_ab
 {
 	struct s_stack_ps	*a;
 	struct s_stack_ps	*b;
+	struct s_ops_ps	*ops;
 	int					size;
 }	t_ab;
 
@@ -53,8 +60,10 @@ void		sort_with_radix(t_ab *ab);
 
 // LL functions
 t_list_ps	*ft_lstnew_ps(int nbr, t_ab *ab);
+t_ops_ps	*ft_lstnewops_ps(char *op, t_ab *ab);
 void		ft_lstadd_front_ps(t_stack_ps *a, t_list_ps *new);
 void		ft_lstadd_back_ps(t_stack_ps *a, t_list_ps *new);
+void		ft_lstadd_backops_ps(t_ab *ab, t_ops_ps *new);
 
 // Instructions
 void		sa(t_stack_ps *a);
