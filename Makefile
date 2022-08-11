@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/08/05 22:31:57 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/08/11 11:52:27 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC = main.c						\
 	fill_tab.c						\
 	fill_stack_a.c					\
 	is_an_int.c						\
-	indexing.c
+	indexing.c						\
+	print_ops.c
 
 INIT = init_program.c	\
 	init_stacks.c
@@ -37,8 +38,9 @@ INSTRUCTIONS = push.c			\
 			reverse_rotate.c	\
 			swap.c
 
-SORTING_ALGORITHMS = sort_with_radix.c			\
-					sort_under_fifty_values.c
+SORTING_ALGORITHMS = sort_under_fifty_values.c	\
+					sort_with_radix.c			\
+					optimize_ops.c
 
 SRCS = $(addprefix src/, $(SRC))									\
 	 $(addprefix src/init/, $(INIT))								\

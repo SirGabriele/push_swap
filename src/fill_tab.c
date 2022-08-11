@@ -31,7 +31,6 @@ static void	verify_tab_data(char **tab, t_ab *ab)
 	{
 		if (is_an_int(tab[i]) == 1)
 		{
-			ft_printf_error("[Over/under]flow detected\n");// A SUPPRIMER
 			clear_tab(tab);
 			clear_program(ab);
 		}
@@ -53,10 +52,7 @@ static void	is_duplicate(t_ab *ab)
 		while (checker != NULL)
 		{
 			if (copy->nbr == checker->nbr)
-			{
-				ft_printf_error("Duplicate values detected\n");// A SUPPRIMER
 				clear_program(ab);
-			}
 			checker = checker->next;
 		}
 		copy = copy->next;
@@ -99,7 +95,6 @@ void	fill_tab(char **argv, t_ab *ab)
 			tab = ft_calloc(sizeof(char *), 2);
 			if (tab == NULL)
 			{
-				ft_printf_error("Error while filling tab\n");//A SUPPRIMER
 				clear_tab(tab);
 				clear_program(ab);
 			}

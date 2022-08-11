@@ -26,7 +26,6 @@ void	pa(t_ab *ab)
 		ab->ops = ft_lstnewops_ps("pa", ab);
 	else
 		ft_lstadd_backops_ps(ab, ft_lstnewops_ps("pa", ab));
-//	write(1, "pa\n", 3);
 }
 
 void	pb(t_ab *ab)
@@ -43,5 +42,4 @@ void	pb(t_ab *ab)
 		ab->ops = ft_lstnewops_ps("pb", ab);
 	else
 		ft_lstadd_backops_ps(ab, ft_lstnewops_ps("pb", ab));
-//	write(1, "pb\n", 3);
 }

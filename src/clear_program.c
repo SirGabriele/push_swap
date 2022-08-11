@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:35:26 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/07/19 05:47:51 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/08/11 01:15:58 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,20 @@
 static void	clear_ops(t_ops_ps *ops)
 {
 	t_ops_ps	*copy;
-	
+
 	copy = ops;
 	while (copy != NULL)
 	{
 		copy = ops->next;
 		if (ops->op != NULL)
+		{
 			free(ops->op);
+			ops->op = NULL;
+		}
 		free(ops);
 		ops = copy;
 	}
+	ops = NULL;
 }
 
 static void	clear_list(t_list_ps *list)
@@ -56,8 +60,9 @@ void	clear_program(t_ab *ab)
 	if (ab->ops != NULL)
 		clear_ops(ab->ops);
 	free(ab->a);
+	ab->a = NULL;
 	free(ab->b);
-	free(ab->ops);
+	ab->b = NULL;
 	free(ab);
 	ab = NULL;
 	ft_printf_error("Error\n");
