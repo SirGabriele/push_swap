@@ -56,6 +56,8 @@ void		init_stack_b(t_stack_ps *b);
 
 // Sorting functions
 void		indexing(t_ab *ab);
+void		transfer_all_b_in_a(t_ab *ab);
+int			ft_size_of_list(t_list_ps *list);
 void		sort_under_fifty_values(t_ab *ab);
 void		sort_one_hundred_values(t_ab *ab);
 void		sort_with_radix(t_ab *ab);

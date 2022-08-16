@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-static int	ft_size_of_list(t_list_ps *list)
+int	ft_size_of_list(t_list_ps *list)
 {
 	int			i;
 	t_list_ps	*copy;
@@ -43,7 +43,7 @@ static void	transfer_some_b_in_a(t_ab *ab, int i)
 	}
 }
 
-static void	transfer_all_b_in_a(t_ab *ab)
+void	transfer_all_b_in_a(t_ab *ab)
 {
 	while (ab->b->head != NULL)
 		pa(ab);

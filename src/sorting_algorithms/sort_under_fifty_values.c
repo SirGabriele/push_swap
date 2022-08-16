@@ -12,29 +12,15 @@
 
 #include "../push_swap.h"
 
-static void	transfer_all_b_in_a(t_ab *ab)
-{
-	t_list_ps	*copya;
-	t_list_ps	*copyb;
-
-	copya = ab->a->head;
-	copyb = ab->b->head;
-	while (copyb != NULL)
-	{
-		pa(ab);
-		copya = ab->a->head;
-		copyb = ab->b->head;
-	}
-	copya++;
-}
-
 static void	push_smallest_value(t_ab *ab)
 {
 	t_list_ps	*copy;
 	int			min_nbr;
 	int			i;
-
+	int			j;
+	
 	i = 0;
+	j = 0;	
 	copy = ab->a->head->next;
 	min_nbr = ab->a->head->nbr;
 	while (copy != NULL)
@@ -42,13 +28,14 @@ static void	push_smallest_value(t_ab *ab)
 		if (copy->nbr < min_nbr)
 		{
 			min_nbr = copy->nbr;
-			i++;
+			j = i;
 		}
+		i++;
 		copy = copy->next;
 	}
 	while (ab->a->head->nbr != min_nbr)
 	{
-		if (i <= ab->size / 2)
+		if (j < ft_size_of_list(ab->a->head) / 2)
 			ra(ab->a, ab);
 		else
 			rra(ab->a, ab);
